@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic
+langchain-nvidia-ai-endpoints
+langchain
+langchain-core
+python-dotenv
+pyinstaller

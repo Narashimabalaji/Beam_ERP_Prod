@@ -1,0 +1,50 @@
+﻿{
+  "name": "beam-erp",
+  "version": "1.0.0",
+  "description": "Beam ERP Desktop Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win"
+  },
+  "build": {
+    "appId": "com.beamsignage.erp",
+    "productName": "Beam ERP",
+    "copyright": "Beam Signage & IT Solutions",
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Beam ERP"
+    },
+    "extraResources": [
+      {
+        "from": "../backend/dist/backend/",
+        "to": "backend",
+        "filter": ["**/*"]
+      }
+    ],
+    "files": [
+      "main.js",
+      "preload.js"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "YOUR_GITHUB_USERNAME",
+      "repo": "YOUR_REPO_NAME",
+      "releaseType": "release"
+    }
+  },
+  "dependencies": {
+    "electron-updater": "^6.3.0"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^25.0.0"
+  }
+}
